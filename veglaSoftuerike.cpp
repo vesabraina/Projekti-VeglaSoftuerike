@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <iomanip>
 using namespace std;
 
 // Enumeracion per statusin e librit
@@ -21,7 +22,7 @@ struct Liber {
 // Funksion per te shfaqur statusin e librit si tekst
 string merrStatusinSiTekst(StatusiLibrit statusi) {
     switch (statusi) {
-        case I_Disponueshem: return "I Disponueshëm";
+        case I_Disponueshem: return "I Disponueshem";
         case I_Huazuar: return "I Huazuar";
         case I_Rezervuar: return "I Rezervuar";
         default: return "I Panjohur";
@@ -35,18 +36,17 @@ void shtoLiber(vector<Liber>& librat, int id, string titulli, string autori) {
     librat.push_back({id, titulli, autori, I_Disponueshem});
 
 }
-// Funksion per te shfaqur te gjithe librat
-
+// Funksion per te shfaqur te gjithe librat me formatim te mire
 void shfaqLibrat(const vector<Liber>& librat) {
-
-    cout << "Lista e Librave:\n";
-    cout << "ID\tTitulli\t\tAutori\t\tStatusi\n";
+    cout << "\n---------------------------------------------------------------------------------\n";
+    cout << left << setw(10) << "ID" << setw(30) << "Titulli" << setw(25) << "Autori" << "Statusi" << endl;
+    cout << "---------------------------------------------------------------------------------\n";
 
     for (const auto& liber : librat) {
-        cout << liber.id << "\t" << liber.titulli << "\t\t" 
-             << liber.autori << "\t\t" << merrStatusinSiTekst(liber.statusi) << endl;
+        cout << left << setw(10) << liber.id << setw(30) << liber.titulli
+             << setw(25) << liber.autori << merrStatusinSiTekst(liber.statusi) << endl;
     }
-
+    cout << "---------------------------------------------------------------------------------\n";
 }
 
 // Funksion per te huazuar nje liber
@@ -96,7 +96,7 @@ int main() {
     // Shto disa libra
     shtoLiber(librat, 1, "Programimi C++", "Autori A");
     shtoLiber(librat, 2, "Algoritmet", "Autori B");
-    shtoLiber(librat, 3, "Strukturat e te Dhenave", "Autori C");
+    shtoLiber(librat, 3, "Fizika ", "Autori C");
 
     // Shfaq librat
     shfaqLibrat(librat);
