@@ -6,3 +6,4 @@
 4. Funksion për të shfaqur të gjithë librat.
 5. Funksion për të huazuar një libër.
 6. Funksion për të kthyer librin.
+![image](https://github.com/user-attachments/assets/0a85d54b-4f01-4566-8f49-c33fd6ab77f6)
